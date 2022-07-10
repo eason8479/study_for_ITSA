@@ -11,14 +11,22 @@ def decode_list(li):
 
         else:
             i += decode
-            while (i > 90):
+            if (i > 90):
                 i -= 26
             text.append(chr(i))
-
+    
     text.reverse()
-    ''.join(text)
-    print(text)
+    print(''.join(text))
 
-li = input().split()
 
-decode_list(li)
+def read_input(n):
+    table = []
+    for _ in range (n):
+        li = input().split()
+        table.append(li)
+    return (table)
+
+n = int(input())
+table = read_input(n)
+for i in range (len(table)):
+    decode_list(table[i])   
